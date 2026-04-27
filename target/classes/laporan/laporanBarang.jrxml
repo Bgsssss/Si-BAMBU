@@ -1,0 +1,130 @@
+<!-- Created with Jaspersoft Studio version 7.0.6.final using JasperReports Library version 7.0.6-5d2a603fdc6b3db8f842a83383e594f41891534d  -->
+<jasperReport name="laporanBarang" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f9b1224f-83de-46bf-a92d-6c5a4b866182">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="ZGJ0b2tvZGVza3RvcC5iYXJhbmcgQVMgLDgzLDYzLDFkZDMxNTMzLWY3ODYtNDQzMi04OTc0LWFh&#xa;ZmFjYTI1ZjAxMTs="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SI_BAMBU"/>
+	<query language="SQL"><![CDATA[SELECT `idBarang`,
+	`namaBarang`,
+	kategori,
+	modal,
+	`hargaJual`,
+	stok
+FROM dbtokodesktop.barang]]></query>
+	<field name="idBarang" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="idBarang"/>
+		<property name="com.jaspersoft.studio.field.label" value="idBarang"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="barang"/>
+	</field>
+	<field name="namaBarang" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="namaBarang"/>
+		<property name="com.jaspersoft.studio.field.label" value="namaBarang"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="barang"/>
+	</field>
+	<field name="kategori" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kategori"/>
+		<property name="com.jaspersoft.studio.field.label" value="kategori"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="barang"/>
+	</field>
+	<field name="modal" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="modal"/>
+		<property name="com.jaspersoft.studio.field.label" value="modal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="barang"/>
+	</field>
+	<field name="hargaJual" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="hargaJual"/>
+		<property name="com.jaspersoft.studio.field.label" value="hargaJual"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="barang"/>
+	</field>
+	<field name="stok" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="stok"/>
+		<property name="com.jaspersoft.studio.field.label" value="stok"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="barang"/>
+	</field>
+	<background/>
+	<title height="72">
+		<element kind="frame" uuid="185c9f9e-b41b-4ece-964f-05d349ac1c98" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699">
+			<element kind="staticText" uuid="8d23839c-68c5-463c-b9e4-4a7ef1f5bc22" x="20" y="20" width="234" height="43" forecolor="#FFFFFF" fontSize="34.0" bold="true">
+				<text><![CDATA[LAPORAN DATA TRANSAKSI]]></text>
+			</element>
+		</element>
+	</title>
+	<pageHeader height="13"/>
+	<columnHeader height="21">
+		<element kind="line" uuid="00e092da-c066-4cbe-8ba0-209d9aae4925" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+		<element kind="staticText" uuid="1e568b29-cee4-44c5-934d-4081d6f60fec" mode="Opaque" x="0" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[ID Barang]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="86b20c77-b735-4a4a-bea9-0a4f73058f8a"/>
+		</element>
+		<element kind="staticText" uuid="764effe7-fa9b-4731-a6bb-aaeb994b7e20" mode="Opaque" x="92" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Nama Barang]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4036c55-c8b3-48eb-9ca2-38faed9a4190"/>
+		</element>
+		<element kind="staticText" uuid="15d1c10a-cf70-4fd2-8cce-c866ecc1520f" mode="Opaque" x="184" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Kategori]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8712e03a-0121-4d60-90d4-cdfa720cf9c7"/>
+		</element>
+		<element kind="staticText" uuid="d9578f7c-1ae0-44c9-8d80-9012688e3e59" mode="Opaque" x="276" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Modal]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9797747c-1876-42f5-8420-9e93e454430f"/>
+		</element>
+		<element kind="staticText" uuid="85dd15fe-168c-4624-970c-557ca8a935ad" mode="Opaque" x="368" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Harga Jual]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f54203a-0cc9-440e-b7fb-bc82e20a297f"/>
+		</element>
+		<element kind="staticText" uuid="1c281766-ff52-409c-9e20-3211af2ebb0f" mode="Opaque" x="460" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Stok]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5ab09d18-f44b-4f79-a5ca-68590fea995f"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<element kind="line" uuid="2295cf4c-2af6-4082-b221-c1cc589961dd" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+			<element kind="textField" uuid="7905a0dc-4294-4954-bc65-cf72c605abef" x="0" y="0" width="92" height="20" fontSize="12.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Justified">
+				<expression><![CDATA[$F{idBarang}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="86b20c77-b735-4a4a-bea9-0a4f73058f8a"/>
+			</element>
+			<element kind="textField" uuid="f9ac52df-c525-4627-a35d-31d2807e0a29" x="92" y="0" width="92" height="20" fontSize="12.0" textAdjust="StretchHeight">
+				<expression><![CDATA[$F{namaBarang}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4036c55-c8b3-48eb-9ca2-38faed9a4190"/>
+			</element>
+			<element kind="textField" uuid="406aee4e-062a-4438-ac35-9acd941b18c3" x="184" y="0" width="92" height="20" fontSize="12.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA[$F{kategori}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8712e03a-0121-4d60-90d4-cdfa720cf9c7"/>
+			</element>
+			<element kind="textField" uuid="e034f258-0566-47cc-a0ca-34a4e63df230" x="276" y="0" width="92" height="20" fontSize="12.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA["Rp" + new java.text.DecimalFormat("#,##0.00", 
+    new java.text.DecimalFormatSymbols(new java.util.Locale("id", "ID"))
+).format(
+    Double.parseDouble($F{modal} == null || $F{modal}.trim().isEmpty() ? "0" : $F{modal}.trim())
+)]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9797747c-1876-42f5-8420-9e93e454430f"/>
+			</element>
+			<element kind="textField" uuid="87aad7e9-34d1-4455-887d-d9c2da28469e" x="368" y="0" width="92" height="20" fontSize="12.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA["Rp" + new java.text.DecimalFormat("#,##0.00", 
+    new java.text.DecimalFormatSymbols(new java.util.Locale("id", "ID"))
+).format(
+    Double.parseDouble($F{hargaJual} == null || $F{hargaJual}.trim().isEmpty() ? "0" : $F{hargaJual}.trim())
+)]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f54203a-0cc9-440e-b7fb-bc82e20a297f"/>
+			</element>
+			<element kind="textField" uuid="64f83181-e7c8-48bc-bf4a-97d7975debb8" x="460" y="0" width="92" height="20" fontSize="12.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA[$F{stok}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5ab09d18-f44b-4f79-a5ca-68590fea995f"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter/>
+	<pageFooter height="17">
+		<element kind="textField" uuid="dce2105f-be32-4710-ae84-f1ee533382d9" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" hTextAlign="Right">
+			<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+		</element>
+		<element kind="textField" uuid="de15fd02-7ad2-466d-a935-6ac34bdb5b32" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" evaluationTime="Report">
+			<expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="textField" uuid="f2638712-2a88-404a-8bac-6dcc933caab8" x="0" y="4" width="100" height="13" pattern="EEEEE dd MMMMM yyyy">
+			<expression><![CDATA[new java.text.SimpleDateFormat("EEEE, dd MMMM yyyy", 
+    new java.util.Locale("id", "ID")
+).format(new java.util.Date())]]></expression>
+		</element>
+	</pageFooter>
+	<summary/>
+</jasperReport>
