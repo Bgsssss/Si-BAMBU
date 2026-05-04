@@ -20,8 +20,19 @@ public class Barang {
     private String modal;
     private String hargaJual;
     private int stok;
+    private String idPemasok;
 
     Koneksi koneksi = new Koneksi();
+
+    public String getIdPemasok() {
+        return idPemasok;
+    }
+
+    public void setIdPemasok(String idPemasok) {
+        this.idPemasok = idPemasok;
+    }
+    
+    
 
     public String getIdBarang() {
         return idBarang;
@@ -73,9 +84,9 @@ public class Barang {
 
     public void simpanDataBarang() {
         //inisialisasi query untuk insert kedalam database
-        String sql = ("INSERT INTO barang (namaBarang, kategori, modal, hargaJual, stok) "
+        String sql = ("INSERT INTO barang (namaBarang, kategori, modal, hargaJual, stok, idPemasok) "
                 + " VALUES ('" + getNamaBarang() + "', '" + getKategori() + "' "
-                + ", '" + getModal() + "', '" + getHargaJual() + "', '" + getStok() + "')");
+                + ", '" + getModal() + "', '" + getHargaJual() + "', '" + getStok() + "', '" + getIdPemasok()+ "')");
 
         try {
             //inisialisasi preparedStatement
@@ -96,7 +107,8 @@ public class Barang {
                 + ", kategori = '" + getKategori() + "'"
                 + ", modal = '" + getModal() + "'"
                 + ", hargaJual = '" + getHargaJual() + "'"
-                + ", stok = '" + getStok() + "' WHERE idBarang = '" + getIdBarang() + "'";
+                + ", stok = '" + getStok() + "'"
+                + ", idPemasok = '" + getIdPemasok()+ "' WHERE idBarang = '" + getIdBarang() + "'";
         try {
             //inisialisasi preparedStatement
             PreparedStatement eksekusi = koneksi.getConnect().prepareStatement(sql);

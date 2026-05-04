@@ -1,0 +1,151 @@
+<!-- Created with Jaspersoft Studio version 7.0.6.final using JasperReports Library version 7.0.6-5d2a603fdc6b3db8f842a83383e594f41891534d  -->
+<jasperReport name="laporanPendapatan" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f6b010f1-ce94-4cc7-b170-24337cad0fe8">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SI_BAMBU"/>
+	<parameter name="tglDari" class="java.util.Date"/>
+	<parameter name="tglSampai" class="java.util.Date"/>
+	<query language="SQL"><![CDATA[SELECT idTransaksi,
+       namaPembeli,
+       jmlBarang,
+       CAST(total AS DECIMAL(15,2)) AS total,
+       tglTransaksi
+FROM transaksi 
+WHERE DATE(tglTransaksi) BETWEEN DATE($P{tglDari}) AND DATE($P{tglSampai})
+ORDER BY tglTransaksi ASC]]></query>
+	<field name="idTransaksi" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="idTransaksi"/>
+		<property name="com.jaspersoft.studio.field.label" value="idTransaksi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transaksi"/>
+	</field>
+	<field name="namaPembeli" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="namaPembeli"/>
+		<property name="com.jaspersoft.studio.field.label" value="namaPembeli"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transaksi"/>
+	</field>
+	<field name="jmlBarang" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="jmlBarang"/>
+		<property name="com.jaspersoft.studio.field.label" value="jmlBarang"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transaksi"/>
+	</field>
+	<field name="total" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="total"/>
+		<property name="com.jaspersoft.studio.field.label" value="total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transaksi"/>
+	</field>
+	<field name="tglTransaksi" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="tglTransaksi"/>
+		<property name="com.jaspersoft.studio.field.label" value="tglTransaksi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transaksi"/>
+	</field>
+	<variable name="grandTotal" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[$F{total}]]></expression>
+	</variable>
+	<background/>
+	<title height="72">
+		<element kind="frame" uuid="ee61d8ae-1623-4d28-a37d-c3f0af859c49" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699">
+			<element kind="staticText" uuid="5dd5c899-ce39-44fa-886a-d0097d462714" x="20" y="20" width="500" height="43" forecolor="#FFFFFF" fontSize="34.0" bold="true">
+				<text><![CDATA[LAPORAN PENDAPATAN]]></text>
+			</element>
+		</element>
+	</title>
+	<pageHeader height="80">
+		<element kind="textField" uuid="c80ff7dc-d327-435f-8082-bb29c61d0e60" x="20" y="50" width="400" height="30" fontSize="16.0">
+			<expression><![CDATA["Periode Laporan: " +
+new java.text.SimpleDateFormat("dd MMMM yyyy", new java.util.Locale("id","ID"))
+.format(new java.util.Date($P{tglDari}.getTime()))
++ " - " +
+new java.text.SimpleDateFormat("dd MMMM yyyy", new java.util.Locale("id","ID"))
+.format(new java.util.Date($P{tglSampai}.getTime()))]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="21">
+		<element kind="line" uuid="99d313ae-29d4-4364-b176-1f8f03d2a5f9" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+		<element kind="staticText" uuid="06837075-cd26-4542-b38b-25047c4c4eaf" mode="Opaque" x="0" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[ID Transaksi]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b1942a2-5c29-48a0-b7e8-8041a4588715"/>
+		</element>
+		<element kind="staticText" uuid="b325bc62-55b6-45ec-bc35-77e16a2588eb" mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Nama Pembeli]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e8d3454b-d3be-46d5-88b2-4c6611e9e5ef"/>
+		</element>
+		<element kind="staticText" uuid="40bf4532-e847-48d7-bd1e-980f66368e35" mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Jumlah Barang]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="78aebee4-dc78-4e24-a423-791483ae5f0a"/>
+		</element>
+		<element kind="staticText" uuid="a2a448f7-77a1-4ee1-ab29-6b3bc8b576a7" mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Total]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fcb1c1d6-bf0a-4416-aaf3-9e7b432bb90e"/>
+		</element>
+		<element kind="staticText" uuid="e4a61e6a-02d1-466b-b7ca-7cdd9afbd295" mode="Opaque" x="430" y="0" width="125" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[TanggalTransaksi]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ca524c3d-c435-4b3f-81d1-c21cc5d5ca01"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<element kind="line" uuid="3d275af1-064d-4691-917f-26f0027de787" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+			<element kind="textField" uuid="029d4c6f-8983-478f-a0c2-aef7382c44ba" x="0" y="0" width="111" height="20" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA[$F{idTransaksi}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b1942a2-5c29-48a0-b7e8-8041a4588715"/>
+			</element>
+			<element kind="textField" uuid="a79b7bf2-c8be-4c1b-82fe-8a42e89aa8e7" x="111" y="0" width="111" height="20" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA[$F{namaPembeli}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e8d3454b-d3be-46d5-88b2-4c6611e9e5ef"/>
+			</element>
+			<element kind="textField" uuid="c6256bd6-c597-42a8-89e2-9302d39dc7f3" x="222" y="0" width="111" height="20" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA[$F{jmlBarang}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="78aebee4-dc78-4e24-a423-791483ae5f0a"/>
+			</element>
+			<element kind="textField" uuid="a694acd6-3c70-478c-a22f-a328afed0ce3" x="333" y="0" width="111" height="20" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA["Rp " + new java.text.DecimalFormat("#,##0", 
+    new java.text.DecimalFormatSymbols(new java.util.Locale("id", "ID"))
+).format(
+   $F{total} 
+)]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fcb1c1d6-bf0a-4416-aaf3-9e7b432bb90e"/>
+			</element>
+			<element kind="textField" uuid="d7596dd1-e660-45a7-bac8-d9cfdb5e08df" x="444" y="0" width="111" height="20" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA[new java.text.SimpleDateFormat("dd MMMM yyyy", new java.util.Locale("id", "ID"))
+    .format($F{tglTransaksi})]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ca524c3d-c435-4b3f-81d1-c21cc5d5ca01"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter/>
+	<pageFooter height="17">
+		<element kind="textField" uuid="0d5f8890-f62d-4692-8b1f-6947c0014da7" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" hTextAlign="Right">
+			<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+		</element>
+		<element kind="textField" uuid="14f5befe-bbef-49cf-8753-1eb93fe77600" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" evaluationTime="Report">
+			<expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="textField" uuid="2d5efba8-040f-4008-98a9-c3b841f00efb" x="0" y="4" width="100" height="13" pattern="EEEEE dd MMMMM yyyy">
+			<expression><![CDATA[new java.text.SimpleDateFormat("EEEE, dd MMMM yyyy", 
+    new java.util.Locale("id", "ID")
+).format(new java.util.Date())]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="233">
+		<element kind="textField" uuid="cad7aba6-6dce-4e3c-b2c2-40d4d66c1c68" x="390" y="93" width="125" height="30" fontSize="13.0" hTextAlign="Center">
+			<expression><![CDATA[new java.text.SimpleDateFormat("'Jakarta, 'dd MMMM yyyy", 
+    new java.util.Locale("id", "ID")
+).format(new java.util.Date())]]></expression>
+		</element>
+		<element kind="staticText" uuid="7bd973ce-1ab6-4ef8-8f60-f7918ec9bc44" x="420" y="123" width="100" height="30" fontSize="13.0">
+			<text><![CDATA[Kepala Toko]]></text>
+		</element>
+		<element kind="staticText" uuid="4ce03c41-83a9-45d0-b717-d00d47d19952" mode="Opaque" x="220" y="10" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Grand Total]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27feb4d1-bd97-4533-b7d7-3bbd22500ee1"/>
+		</element>
+		<element kind="line" uuid="8253a31d-cdcc-4843-afd7-ce3faf50b36c" positionType="FixRelativeToBottom" x="0" y="39" width="555" height="1"/>
+		<element kind="textField" uuid="ea77d653-7655-4d2e-a383-7d5c4b34e700" x="340" y="10" width="194" height="30" fontSize="16.0">
+			<expression><![CDATA["Rp " + new java.text.DecimalFormat("#,##0.00",
+    new java.text.DecimalFormatSymbols(new java.util.Locale("id","ID"))
+).format($V{grandTotal})]]></expression>
+		</element>
+		<element kind="staticText" uuid="2640394e-4a3b-4f89-8820-c488aa042916" x="410" y="203" width="115" height="30" fontSize="13.0">
+			<text><![CDATA[Muhammad Ario]]></text>
+		</element>
+	</summary>
+</jasperReport>

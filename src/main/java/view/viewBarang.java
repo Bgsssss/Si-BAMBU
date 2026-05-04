@@ -28,7 +28,6 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 
-
 public class viewBarang extends javax.swing.JInternalFrame {
 
     /**
@@ -36,11 +35,13 @@ public class viewBarang extends javax.swing.JInternalFrame {
      */
     private DefaultTableModel model;
     private controllerBarang cB;
+
     public viewBarang() {
         initComponents();
-        ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
+        loadPemasok();
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         cB = new controllerBarang(this);
-        
+
         model = new DefaultTableModel();
         tabelBarang.setModel(model);
         model.addColumn("ID");
@@ -48,11 +49,14 @@ public class viewBarang extends javax.swing.JInternalFrame {
         model.addColumn("KATEGORI");
         model.addColumn("MODAL");
         model.addColumn("HRG JUAL");
-        model.addColumn("STOK");    
-        
+        model.addColumn("STOK");
+        model.addColumn("ID PEMASOK");
+
         tampilDataBarang();
         cB.controlButton();
     }
+    
+    
 
     public JTextField getHargaJual() {
         return hargaJual;
@@ -64,6 +68,10 @@ public class viewBarang extends javax.swing.JInternalFrame {
 
     public JComboBox<String> getKategori() {
         return kategori;
+    }
+    
+    public JComboBox<String> getPemasok() {
+        return pemasok;
     }
 
     public JTextField getModal() {
@@ -93,56 +101,86 @@ public class viewBarang extends javax.swing.JInternalFrame {
     public JButton getTombolTambah() {
         return tombolTambah;
     }
-    
+
     private void tampilDataBarang() {
         model.getDataVector().removeAllElements();
         model.fireTableDataChanged();
-        
+
         String sql = "SELECT * FROM barang";
         try {
             Statement stat = (Statement) Koneksi.getConnect().createStatement();
             ResultSet res = stat.executeQuery(sql);
-            
-            while(res.next()){
+
+            while (res.next()) {
                 //mengambil hasil query variable sql
                 Object[] hasil;
-                hasil = new Object[6]; // karena ada 6 field
+                hasil = new Object[7]; // karena ada 7 field
                 hasil[0] = res.getString("idBarang");
                 hasil[1] = res.getString("namaBarang");
                 hasil[2] = res.getString("kategori");
                 hasil[3] = res.getString("modal");
                 hasil[4] = res.getString("hargaJual");
                 hasil[5] = res.getString("stok");
-                
-                model.addRow(hasil);                  
+                hasil[6] = res.getString("idPemasok");
+
+                model.addRow(hasil);
             }
         } catch (SQLException ex) {
             Logger.getLogger(viewBarang.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private void ambilDataTabel() {
         int index = tabelBarang.getSelectedRow();
-        
+
         String id = String.valueOf(tabelBarang.getValueAt(index, 0));
         String nama = String.valueOf(tabelBarang.getValueAt(index, 1));
         String kat = String.valueOf(tabelBarang.getValueAt(index, 2));
         String mod = String.valueOf(tabelBarang.getValueAt(index, 3));
         String jual = String.valueOf(tabelBarang.getValueAt(index, 4));
         String stk = String.valueOf(tabelBarang.getValueAt(index, 5));
-        
+        String idPemasok = String.valueOf(tabelBarang.getValueAt(index, 6));
+
         //mengisi nilai kedalam textField
         idBarang.setText(id);
         namaBarang.setText(nama);
         kategori.setSelectedItem(kat);
         modal.setText(mod);
         hargaJual.setText(jual);
-        stok.setValue(Integer.parseInt(stk));       
+        stok.setValue(Integer.parseInt(stk));
         
+        for (int i = 0; i < pemasok.getItemCount(); i++) {
+        String item = pemasok.getItemAt(i);
+
+        if (item.startsWith(idPemasok + " -")) {
+            pemasok.setSelectedIndex(i);
+            break;
+        }
+    }
+
         cB.controlButton2();
     }
-    
-    
+
+    private void loadPemasok() {
+        try {
+            String sql = "SELECT idPemasok, namaPemasok FROM pemasok";
+            Statement stat = Koneksi.getConnect().createStatement();
+            ResultSet rs = stat.executeQuery(sql);
+
+            pemasok.removeAllItems(); // biar ga dobel
+
+            while (rs.next()) {
+                String id = rs.getString("idPemasok");
+                String nama = rs.getString("namaPemasok");
+
+                // format: id - nama
+                pemasok.addItem(id + " - " + nama);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Gagal load pemasok: " + e.getMessage());
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -173,6 +211,8 @@ public class viewBarang extends javax.swing.JInternalFrame {
         tombolHapus = new javax.swing.JButton();
         tombolBatal = new javax.swing.JButton();
         tombolCetak = new javax.swing.JButton();
+        pemasok = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -222,6 +262,11 @@ public class viewBarang extends javax.swing.JInternalFrame {
         jLabel6.setText("Kategori");
 
         kategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bulat", "Halus", "Lainnya" }));
+        kategori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kategoriActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Stok");
 
@@ -254,7 +299,7 @@ public class viewBarang extends javax.swing.JInternalFrame {
             }
         });
 
-        tombolBatal.setText("Batal");
+        tombolBatal.setText("Bersihkan");
         tombolBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tombolBatalActionPerformed(evt);
@@ -268,6 +313,15 @@ public class viewBarang extends javax.swing.JInternalFrame {
                 tombolCetakActionPerformed(evt);
             }
         });
+
+        pemasok.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        pemasok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pemasokActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Pemasok");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -288,17 +342,10 @@ public class viewBarang extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7))
-                        .addGap(46, 46, 46)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(stok, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 143, Short.MAX_VALUE))
-                            .addComponent(modal)
-                            .addComponent(hargaJual)))
+                        .addComponent(jLabel7)
+                        .addGap(78, 78, 78)
+                        .addComponent(stok, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 143, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -309,6 +356,24 @@ public class viewBarang extends javax.swing.JInternalFrame {
                             .addComponent(namaBarang, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(idBarang)
                             .addComponent(kategori, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(46, 46, 46)
+                .addComponent(hargaJual)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(67, 67, 67)
+                .addComponent(modal)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addGap(57, 57, 57)
+                .addComponent(pemasok, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -326,19 +391,23 @@ public class viewBarang extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(kategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(modal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(hargaJual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pemasok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(stok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                    .addComponent(modal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hargaJual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(stok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(tombolCetak)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -402,11 +471,11 @@ public class viewBarang extends javax.swing.JInternalFrame {
 
     private void tombolTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolTambahActionPerformed
         // TODO add your handling code here:
-        if(namaBarang.getText().equals("")||modal.getText().equals("")||hargaJual.getText().equals("")){
+        if (namaBarang.getText().equals("") || modal.getText().equals("") || hargaJual.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong");
-        }else if(Integer.parseInt(stok.getValue().toString())<=0){
+        } else if (Integer.parseInt(stok.getValue().toString()) <= 0) {
             JOptionPane.showMessageDialog(null, "Jumlah Barang tidak benar");
-        }else{
+        } else {
             cB.simpanData();
             tampilDataBarang();
         }
@@ -438,7 +507,7 @@ public class viewBarang extends javax.swing.JInternalFrame {
     private void modalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modalKeyTyped
         // TODO add your handling code here:
         char i = evt.getKeyChar();
-        if(!((Character.isDigit(i))||(i==KeyEvent.VK_BACK_SPACE))||(i==KeyEvent.VK_DELETE)){
+        if (!((Character.isDigit(i)) || (i == KeyEvent.VK_BACK_SPACE)) || (i == KeyEvent.VK_DELETE)) {
             getToolkit().beep();
             //JOptionPane.showMessageDialog(null, "Hanya Masukan Angka!");
             evt.consume();
@@ -448,7 +517,7 @@ public class viewBarang extends javax.swing.JInternalFrame {
     private void hargaJualKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hargaJualKeyTyped
         // TODO add your handling code here:
         char i = evt.getKeyChar();
-        if(!((Character.isDigit(i))||(i==KeyEvent.VK_BACK_SPACE))||(i==KeyEvent.VK_DELETE)){
+        if (!((Character.isDigit(i)) || (i == KeyEvent.VK_BACK_SPACE)) || (i == KeyEvent.VK_DELETE)) {
             getToolkit().beep();
             //JOptionPane.showMessageDialog(null, "Hanya Masukan Angka!");
             evt.consume();
@@ -458,7 +527,7 @@ public class viewBarang extends javax.swing.JInternalFrame {
     private void stokKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stokKeyTyped
         // TODO add your handling code here:
         char i = evt.getKeyChar();
-        if(!((Character.isDigit(i))||(i==KeyEvent.VK_BACK_SPACE))||(i==KeyEvent.VK_DELETE)){
+        if (!((Character.isDigit(i)) || (i == KeyEvent.VK_BACK_SPACE)) || (i == KeyEvent.VK_DELETE)) {
             getToolkit().beep();
             //JOptionPane.showMessageDialog(null, "Hanya Masukan Angka!");
             evt.consume();
@@ -471,13 +540,21 @@ public class viewBarang extends javax.swing.JInternalFrame {
             Connection conn = new Koneksi().getConnect();
             HashMap<String, Object> parameter = new HashMap<>();
             InputStream is = getClass().getResourceAsStream("/laporan/laporanBarang.jrxml");
-            JasperReport jr = JasperCompileManager.compileReport(is); 
+            JasperReport jr = JasperCompileManager.compileReport(is);
             JasperPrint jp = JasperFillManager.fillReport(jr, parameter, conn);
             JasperViewer.viewReport(jp, false);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_tombolCetakActionPerformed
+
+    private void kategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kategoriActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kategoriActionPerformed
+
+    private void pemasokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pemasokActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pemasokActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -490,12 +567,14 @@ public class viewBarang extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> kategori;
     private javax.swing.JTextField modal;
     private javax.swing.JTextField namaBarang;
+    private javax.swing.JComboBox<String> pemasok;
     private javax.swing.JSpinner stok;
     private javax.swing.JTable tabelBarang;
     private javax.swing.JButton tombolBatal;

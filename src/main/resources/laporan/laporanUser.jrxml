@@ -76,7 +76,9 @@ FROM dbtokodesktop.user]]></query>
 			</element>
 		</band>
 	</detail>
-	<columnFooter/>
+	<columnFooter>
+		<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+	</columnFooter>
 	<pageFooter height="17">
 		<element kind="textField" uuid="216a2329-cc06-498a-8255-43ef8b39aeac" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" hTextAlign="Right">
 			<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
@@ -90,5 +92,17 @@ FROM dbtokodesktop.user]]></query>
 ).format(new java.util.Date())]]></expression>
 		</element>
 	</pageFooter>
-	<summary/>
+	<summary height="200">
+		<element kind="staticText" uuid="1447aa6c-15d0-4004-9cf8-1b4335411ebd" x="410" y="170" width="115" height="30" fontSize="13.0">
+			<text><![CDATA[Muhammad Ario]]></text>
+		</element>
+		<element kind="textField" uuid="8e967e88-8f4b-4b14-b947-633f00b24e60" x="390" y="70" width="125" height="30" fontSize="13.0" hTextAlign="Center">
+			<expression><![CDATA[new java.text.SimpleDateFormat("'Jakarta, 'dd MMMM yyyy", 
+    new java.util.Locale("id", "ID")
+).format(new java.util.Date())]]></expression>
+		</element>
+		<element kind="staticText" uuid="185b462a-8600-4edc-a5a6-4035f91e5d00" x="420" y="90" width="100" height="30" fontSize="13.0">
+			<text><![CDATA[Kepala Toko]]></text>
+		</element>
+	</summary>
 </jasperReport>

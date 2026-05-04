@@ -1,0 +1,106 @@
+<!-- Created with Jaspersoft Studio version 7.0.6.final using JasperReports Library version 7.0.6-5d2a603fdc6b3db8f842a83383e594f41891534d  -->
+<jasperReport name="laporanPemasok" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="504bb087-b3f3-43a7-8680-f124e5646397">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="ZGJ0b2tvZGVza3RvcC5wZW1hc29rIEFTICwxMDIsOTcsN2ZiZDM1NGEtYjNkNy00YjBmLTkxYzYt&#xa;NTk1NTBiMWUxZDFhOw=="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SI_BAMBU"/>
+	<query language="SQL"><![CDATA[SELECT `idPemasok`,
+	`namaPemasok`,
+	alamat,
+	kontak
+FROM dbtokodesktop.pemasok]]></query>
+	<field name="idPemasok" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="idPemasok"/>
+		<property name="com.jaspersoft.studio.field.label" value="idPemasok"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pemasok"/>
+	</field>
+	<field name="namaPemasok" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="namaPemasok"/>
+		<property name="com.jaspersoft.studio.field.label" value="namaPemasok"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pemasok"/>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="alamat"/>
+		<property name="com.jaspersoft.studio.field.label" value="alamat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pemasok"/>
+	</field>
+	<field name="kontak" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kontak"/>
+		<property name="com.jaspersoft.studio.field.label" value="kontak"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pemasok"/>
+	</field>
+	<background/>
+	<title height="72">
+		<element kind="frame" uuid="10087a28-20ef-444d-93fa-1960369a0a96" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699">
+			<element kind="staticText" uuid="8b406411-139f-4b60-b704-31c99ed54239" x="20" y="20" width="480" height="43" forecolor="#FFFFFF" fontSize="34.0" bold="true">
+				<text><![CDATA[LAPORAN DATA PEMASOK]]></text>
+			</element>
+		</element>
+	</title>
+	<pageHeader height="13"/>
+	<columnHeader height="21">
+		<element kind="line" uuid="82c953c6-84bb-4cae-a638-d8983a7e5afd" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+		<element kind="staticText" uuid="b2a8e731-66cb-4f05-9db7-3c5f9e9bf9e3" mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[ID Pemasok]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c7bb074b-dffc-4beb-87c5-82f8471f3ee5"/>
+		</element>
+		<element kind="staticText" uuid="ed976e90-3d8a-4b9e-886e-d09dfecde72e" mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Nama Pemasok]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e6e61c9f-5f1a-45ff-9bc7-5265a57fc604"/>
+		</element>
+		<element kind="staticText" uuid="fadf8ea3-2038-45e6-9281-a89e39b6be0f" mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Alamat]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="784dd063-a418-4160-8df0-1009e520c809"/>
+		</element>
+		<element kind="staticText" uuid="f4df6163-c65e-422c-adae-25463b939c86" mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Kontak]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="18bce343-df81-4f6d-a713-348f881796b0"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<element kind="line" uuid="105fee9d-b723-4840-abc5-90365d2f6e9c" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+			<element kind="textField" uuid="1505e65b-1802-4d7a-9659-5cc8c1e0e49e" x="0" y="0" width="138" height="20" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA[$F{idPemasok}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c7bb074b-dffc-4beb-87c5-82f8471f3ee5"/>
+			</element>
+			<element kind="textField" uuid="35a34e93-36c6-4cfd-a113-ffefad6dc0a6" x="138" y="0" width="138" height="20" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA[$F{namaPemasok}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e6e61c9f-5f1a-45ff-9bc7-5265a57fc604"/>
+			</element>
+			<element kind="textField" uuid="de8e0b78-7cdf-4db7-bed3-ebdbb3e57211" x="276" y="0" width="138" height="20" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA[$F{alamat}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="784dd063-a418-4160-8df0-1009e520c809"/>
+			</element>
+			<element kind="textField" uuid="a0217f9a-4ba9-461e-b9a5-fb315aa5ba67" x="414" y="0" width="138" height="20" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA[$F{kontak}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="18bce343-df81-4f6d-a713-348f881796b0"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter/>
+	<pageFooter height="17">
+		<element kind="textField" uuid="974b5952-4037-47a5-a617-48c722459403" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" hTextAlign="Right">
+			<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+		</element>
+		<element kind="textField" uuid="54c3db6e-b7aa-4977-9e62-f7158261300f" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" evaluationTime="Report">
+			<expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="textField" uuid="6209239b-28ef-4076-96a6-b5b6d371cc59" x="0" y="4" width="100" height="13" pattern="EEEEE dd MMMMM yyyy">
+			<expression><![CDATA[new java.text.SimpleDateFormat("EEEE, dd MMMM yyyy", 
+    new java.util.Locale("id", "ID")
+).format(new java.util.Date())]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="220">
+		<element kind="textField" uuid="861bcf2d-2571-446e-b523-04acee667ff3" x="390" y="70" width="125" height="30" fontSize="13.0" hTextAlign="Center">
+			<expression><![CDATA[new java.text.SimpleDateFormat("'Jakarta, 'dd MMMM yyyy", 
+    new java.util.Locale("id", "ID")
+).format(new java.util.Date())]]></expression>
+		</element>
+		<element kind="staticText" uuid="bd191fca-a3fa-4400-8f37-d6a5349cae4d" x="420" y="90" width="100" height="30" fontSize="13.0">
+			<text><![CDATA[Kepala Toko]]></text>
+		</element>
+		<element kind="staticText" uuid="ed4b0fc6-e6c8-4d6c-8127-503a4b37107d" x="410" y="170" width="115" height="30" fontSize="13.0">
+			<text><![CDATA[Muhammad Ario]]></text>
+		</element>
+	</summary>
+</jasperReport>

@@ -189,7 +189,7 @@ public class viewUser extends javax.swing.JInternalFrame {
             }
         });
 
-        tombolCancel.setText("Batal");
+        tombolCancel.setText("Bersihkan");
         tombolCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tombolCancelActionPerformed(evt);

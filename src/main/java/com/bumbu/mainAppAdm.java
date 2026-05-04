@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import view.viewBarang;
 import view.viewLogin;
+import view.viewPemasok;
+import view.viewPendapatan;
 import view.viewTransaksi;
 import view.viewUser;
 
@@ -42,6 +44,8 @@ public class mainAppAdm extends javax.swing.JFrame {
         navBarang = new javax.swing.JButton();
         navTransaksi = new javax.swing.JButton();
         navUser = new javax.swing.JButton();
+        navPemasok = new javax.swing.JButton();
+        navPendapatan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SI BAMBU - Halaman Admin");
@@ -52,10 +56,11 @@ public class mainAppAdm extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 99));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 3, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SI BAMBU");
 
@@ -65,7 +70,7 @@ public class mainAppAdm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(110, 110, 110)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
                 .addGap(104, 104, 104))
         );
         jPanel1Layout.setVerticalGroup(
@@ -83,11 +88,11 @@ public class mainAppAdm extends javax.swing.JFrame {
         mainDesktop.setLayout(mainDesktopLayout);
         mainDesktopLayout.setHorizontalGroup(
             mainDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 574, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         mainDesktopLayout.setVerticalGroup(
             mainDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 446, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
@@ -97,6 +102,11 @@ public class mainAppAdm extends javax.swing.JFrame {
         navBarang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 navBarangMousePressed(evt);
+            }
+        });
+        navBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                navBarangActionPerformed(evt);
             }
         });
 
@@ -116,6 +126,22 @@ public class mainAppAdm extends javax.swing.JFrame {
             }
         });
 
+        navPemasok.setFont(new java.awt.Font("Microsoft YaHei", 3, 14)); // NOI18N
+        navPemasok.setText("PEMASOK");
+        navPemasok.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                navPemasokMousePressed(evt);
+            }
+        });
+
+        navPendapatan.setFont(new java.awt.Font("Microsoft YaHei", 3, 14)); // NOI18N
+        navPendapatan.setText("PENDAPATAN");
+        navPendapatan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                navPendapatanMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -123,16 +149,22 @@ public class mainAppAdm extends javax.swing.JFrame {
             .addComponent(navBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(navTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
             .addComponent(navUser, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+            .addComponent(navPemasok, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(navPendapatan, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(navBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(12, 12, 12)
+                .addComponent(navPemasok, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(navTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(navPendapatan, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(navUser, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -152,8 +184,8 @@ public class mainAppAdm extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mainDesktop)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mainDesktop)))
         );
 
         pack();
@@ -208,6 +240,38 @@ public class mainAppAdm extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_formWindowClosing
 
+    private void navPemasokMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navPemasokMousePressed
+        // TODO add your handling code here:
+        this.mainDesktop.removeAll();
+        viewPemasok v = new viewPemasok();
+        this.mainDesktop.add(v);
+        v.setMaximumSize(v.getMaximumSize());
+        v.setVisible(true);
+        try {
+            v.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(mainAppAdm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_navPemasokMousePressed
+
+    private void navBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navBarangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_navBarangActionPerformed
+
+    private void navPendapatanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navPendapatanMousePressed
+        // TODO add your handling code here:
+        this.mainDesktop.removeAll();
+        viewPendapatan v = new viewPendapatan();
+        this.mainDesktop.add(v);
+        v.setMaximumSize(v.getMaximumSize());
+        v.setVisible(true);
+        try {
+            v.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(mainAppAdm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_navPendapatanMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -252,6 +316,8 @@ public class mainAppAdm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JDesktopPane mainDesktop;
     private javax.swing.JButton navBarang;
+    private javax.swing.JButton navPemasok;
+    private javax.swing.JButton navPendapatan;
     private javax.swing.JButton navTransaksi;
     private javax.swing.JButton navUser;
     // End of variables declaration//GEN-END:variables

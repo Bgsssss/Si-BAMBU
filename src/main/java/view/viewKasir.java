@@ -473,7 +473,7 @@ public class viewKasir extends javax.swing.JInternalFrame {
                 }
             }
             total.setText(String.valueOf(totalHarga));
-            labelTotalHarga.setText(String.valueOf(totalHarga));
+            labelTotalHarga.setText(new java.text.DecimalFormat("#,##0").format(totalHarga));
             jumlahBarang.setText(String.valueOf(jumlahQty));
         }
     }//GEN-LAST:event_tombolTambahBarangActionPerformed
