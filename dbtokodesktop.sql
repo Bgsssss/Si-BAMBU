@@ -20,6 +20,8 @@ DROP DATABASE IF EXISTS `dbtokodesktop`;
 CREATE DATABASE IF NOT EXISTS `dbtokodesktop` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `dbtokodesktop`;
 
+SET FOREIGN_KEY_CHECKS=0;
+
 -- Dumping structure for table dbtokodesktop.barang
 DROP TABLE IF EXISTS `barang`;
 CREATE TABLE IF NOT EXISTS `barang` (
@@ -143,6 +145,8 @@ INSERT INTO `user` (`idUser`, `username`, `password`, `level`) VALUES
 	(3, 'admin2', 'admin2', 'Admin'),
 	(4, 'kasir2', '12345', 'Kasir');
 
+
+SET FOREIGN_KEY_CHECKS=1;
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
