@@ -19,14 +19,21 @@ import view.viewUser;
 
 public class mainAppAdm extends javax.swing.JFrame {
 
+    private String role;
     /**
      * Creates new form mainApp
      */
-    public mainAppAdm() {
+    public mainAppAdm(String role) {
         initComponents();
-        
+        this.role = role;
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        if (!"Super Admin".equalsIgnoreCase(role)) {
+            navUser.setVisible(false);
+        }
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -305,7 +312,7 @@ public class mainAppAdm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new mainAppAdm().setVisible(true);
+                new mainAppAdm("admin").setVisible(true);
             }
         });
     }

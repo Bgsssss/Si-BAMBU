@@ -41,42 +41,49 @@ ORDER BY tglTransaksi ASC]]></query>
 		<expression><![CDATA[$F{total}]]></expression>
 	</variable>
 	<background/>
-	<title height="72">
-		<element kind="frame" uuid="ee61d8ae-1623-4d28-a37d-c3f0af859c49" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699">
-			<element kind="staticText" uuid="5dd5c899-ce39-44fa-886a-d0097d462714" x="20" y="20" width="500" height="43" forecolor="#FFFFFF" fontSize="34.0" bold="true">
-				<text><![CDATA[LAPORAN PENDAPATAN]]></text>
-			</element>
-		</element>
-	</title>
-	<pageHeader height="80">
-		<element kind="textField" uuid="c80ff7dc-d327-435f-8082-bb29c61d0e60" x="20" y="50" width="400" height="30" fontSize="16.0">
-			<expression><![CDATA["Periode Laporan: " +
+	<pageHeader height="190">
+		<element kind="textField" uuid="c80ff7dc-d327-435f-8082-bb29c61d0e60" x="119" y="160" width="340" height="30" fontSize="16.0" hTextAlign="Center">
+			<expression><![CDATA["Periode: " +
 new java.text.SimpleDateFormat("dd MMMM yyyy", new java.util.Locale("id","ID"))
 .format(new java.util.Date($P{tglDari}.getTime()))
 + " - " +
 new java.text.SimpleDateFormat("dd MMMM yyyy", new java.util.Locale("id","ID"))
 .format(new java.util.Date($P{tglSampai}.getTime()))]]></expression>
 		</element>
+		<element kind="frame" uuid="cf626d13-5814-4a4c-b00d-f44e28de729e" mode="Opaque" x="-23" y="100" width="600" height="50" backcolor="#228B22">
+			<element kind="staticText" uuid="7da13347-1446-4435-9728-c0972e9533a2" x="90" y="10" width="434" height="43" forecolor="#FFFFFF" fontSize="19.0" bold="true" hTextAlign="Center">
+				<text><![CDATA[LAPORAN PENDAPATAN]]></text>
+			</element>
+		</element>
+		<element kind="image" uuid="dd22024d-e13c-4c67-9018-f5c3105c9eb8" x="30" y="-20" width="180" height="130">
+			<expression><![CDATA["D:/Kuliah/Semester-6/PV/nobg.png"]]></expression>
+		</element>
+		<element kind="textField" uuid="5be76e4b-129e-4748-923b-93b326f5fe8b" x="280" y="50" width="288" height="30" fontSize="19.0" hTextAlign="Center">
+			<expression><![CDATA["Pasar Induk Kramat Jati Los C"]]></expression>
+		</element>
+		<element kind="textField" uuid="db5cc47b-4ad4-4b6d-bcaf-2134ea313f55" x="362" y="20" width="158" height="50" fontSize="25.0" bold="true">
+			<expression><![CDATA["SI BAMBU"]]></expression>
+		</element>
 	</pageHeader>
 	<columnHeader height="21">
 		<element kind="line" uuid="99d313ae-29d4-4364-b176-1f8f03d2a5f9" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
-		<element kind="staticText" uuid="06837075-cd26-4542-b38b-25047c4c4eaf" mode="Opaque" x="0" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="06837075-cd26-4542-b38b-25047c4c4eaf" mode="Opaque" x="0" y="0" width="111" height="20" forecolor="#1B5E20" backcolor="#F0FFF0" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[ID Transaksi]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b1942a2-5c29-48a0-b7e8-8041a4588715"/>
 		</element>
-		<element kind="staticText" uuid="b325bc62-55b6-45ec-bc35-77e16a2588eb" mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="b325bc62-55b6-45ec-bc35-77e16a2588eb" mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#1B5E20" backcolor="#FFFFFF" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Nama Pembeli]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e8d3454b-d3be-46d5-88b2-4c6611e9e5ef"/>
 		</element>
-		<element kind="staticText" uuid="40bf4532-e847-48d7-bd1e-980f66368e35" mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="40bf4532-e847-48d7-bd1e-980f66368e35" mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#1B5E20" backcolor="#F0FFF0" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Jumlah Barang]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="78aebee4-dc78-4e24-a423-791483ae5f0a"/>
 		</element>
-		<element kind="staticText" uuid="a2a448f7-77a1-4ee1-ab29-6b3bc8b576a7" mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="a2a448f7-77a1-4ee1-ab29-6b3bc8b576a7" mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#1B5E20" backcolor="#FFFFFF" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Total]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fcb1c1d6-bf0a-4416-aaf3-9e7b432bb90e"/>
 		</element>
-		<element kind="staticText" uuid="e4a61e6a-02d1-466b-b7ca-7cdd9afbd295" mode="Opaque" x="430" y="0" width="125" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="e4a61e6a-02d1-466b-b7ca-7cdd9afbd295" mode="Opaque" x="430" y="0" width="125" height="20" forecolor="#1B5E20" backcolor="#F0FFF0" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[TanggalTransaksi]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ca524c3d-c435-4b3f-81d1-c21cc5d5ca01"/>
 		</element>
@@ -126,15 +133,15 @@ new java.text.SimpleDateFormat("dd MMMM yyyy", new java.util.Locale("id","ID"))
 		</element>
 	</pageFooter>
 	<summary height="233">
-		<element kind="textField" uuid="cad7aba6-6dce-4e3c-b2c2-40d4d66c1c68" x="390" y="93" width="125" height="30" fontSize="13.0" hTextAlign="Center">
-			<expression><![CDATA[new java.text.SimpleDateFormat("'Jakarta, 'dd MMMM yyyy", 
+		<element kind="textField" uuid="cad7aba6-6dce-4e3c-b2c2-40d4d66c1c68" x="370" y="93" width="185" height="30" fontSize="13.0" hTextAlign="Center">
+			<expression><![CDATA[new java.text.SimpleDateFormat("'Jakarta, 'EEEE, dd MMMM yyyy", 
     new java.util.Locale("id", "ID")
 ).format(new java.util.Date())]]></expression>
 		</element>
 		<element kind="staticText" uuid="7bd973ce-1ab6-4ef8-8f60-f7918ec9bc44" x="420" y="123" width="100" height="30" fontSize="13.0">
 			<text><![CDATA[Kepala Toko]]></text>
 		</element>
-		<element kind="staticText" uuid="4ce03c41-83a9-45d0-b717-d00d47d19952" mode="Opaque" x="220" y="10" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="4ce03c41-83a9-45d0-b717-d00d47d19952" mode="Opaque" x="220" y="10" width="111" height="20" forecolor="#1B5E20" backcolor="#F0FFF0" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Grand Total]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27feb4d1-bd97-4533-b7d7-3bbd22500ee1"/>
 		</element>

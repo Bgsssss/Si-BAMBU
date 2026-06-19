@@ -92,6 +92,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="tombolEdit" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
+                              <Component id="tomboltambah" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
                               <Component id="tombolCetak" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -138,10 +139,12 @@
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="level" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="211" max="32767" attributes="0"/>
+                  <EmptySpace pref="172" max="32767" attributes="0"/>
+                  <Component id="tombolCetak" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="tombolDelete" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tombolCetak" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tomboltambah" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -222,6 +225,17 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="tomboltambah">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Tambah"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tomboltambahActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="tombolCetak">
           <Properties>

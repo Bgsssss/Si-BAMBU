@@ -26,7 +26,6 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 
-
 public class viewUser extends javax.swing.JInternalFrame {
 
     /**
@@ -34,18 +33,19 @@ public class viewUser extends javax.swing.JInternalFrame {
      */
     private final DefaultTableModel model;
     private final controllerUser cU;
+
     public viewUser() {
         initComponents();
         cU = new controllerUser(this);
-        ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
-        
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
+
         model = new DefaultTableModel();
         tabelUser.setModel(model);
         model.addColumn("ID");
         model.addColumn("USERNAME");
         model.addColumn("PASSWORD");
         model.addColumn("LEVEL");
-        
+
         tampilDataUser();
         cU.controlButton2();
     }
@@ -77,17 +77,17 @@ public class viewUser extends javax.swing.JInternalFrame {
     public JButton getTombolEdit() {
         return tombolEdit;
     }
-    
+
     private void tampilDataUser() {
         model.getDataVector().removeAllElements();
         model.fireTableDataChanged();
-        
+
         String sql = "SELECT * FROM user";
         try {
             Statement stat = (Statement) Koneksi.getConnect().createStatement();
             ResultSet res = stat.executeQuery(sql);
-            
-            while(res.next()){
+
+            while (res.next()) {
                 //mengambil hasil query variable sql
                 Object[] hasil;
                 hasil = new Object[6]; // karena ada 6 field
@@ -95,28 +95,28 @@ public class viewUser extends javax.swing.JInternalFrame {
                 hasil[1] = res.getString("username");
                 hasil[2] = res.getString("password");
                 hasil[3] = res.getString("level");
-                
-                model.addRow(hasil);                  
+
+                model.addRow(hasil);
             }
         } catch (SQLException ex) {
             Logger.getLogger(viewUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private void ambilDataTabel() {
         int index = tabelUser.getSelectedRow();
-        
+
         String id = String.valueOf(tabelUser.getValueAt(index, 0));
         String name = String.valueOf(tabelUser.getValueAt(index, 1));
         String pas = String.valueOf(tabelUser.getValueAt(index, 2));
         String lev = String.valueOf(tabelUser.getValueAt(index, 3));
-        
+
         //mengisi nilai kedalam textField
         idUser.setText(id);
         username.setText(name);
         password.setText(pas);
         level.setSelectedItem(lev);
-        
+
         cU.controlButton1();
     }
 
@@ -143,6 +143,7 @@ public class viewUser extends javax.swing.JInternalFrame {
         password = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         level = new javax.swing.JComboBox<>();
+        tomboltambah = new javax.swing.JButton();
         tombolCetak = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -202,6 +203,14 @@ public class viewUser extends javax.swing.JInternalFrame {
 
         level.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Kasir" }));
 
+        tomboltambah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tomboltambah.setText("Tambah");
+        tomboltambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tomboltambahActionPerformed(evt);
+            }
+        });
+
         tombolCetak.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tombolCetak.setText("Cetak");
         tombolCetak.addActionListener(new java.awt.event.ActionListener() {
@@ -224,6 +233,7 @@ public class viewUser extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tombolEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tomboltambah, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tombolCetak, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,10 +268,12 @@ public class viewUser extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(level, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                .addComponent(tombolCetak)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tombolDelete)
-                    .addComponent(tombolCetak))
+                    .addComponent(tomboltambah))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tombolEdit)
@@ -341,13 +353,23 @@ public class viewUser extends javax.swing.JInternalFrame {
         ambilDataTabel();
     }//GEN-LAST:event_tabelUserMouseClicked
 
+    private void tomboltambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tomboltambahActionPerformed
+        // TODO add your handling code here:
+        if (username.getText().equals("") || password.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Username atau Password tidak boleh kosong");
+        } else {
+            cU.tambahUser();
+            tampilDataUser();
+        }
+    }//GEN-LAST:event_tomboltambahActionPerformed
+
     private void tombolCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolCetakActionPerformed
         // TODO add your handling code here:
         try {
             Connection conn = new Koneksi().getConnect();
             HashMap<String, Object> parameter = new HashMap<>();
             InputStream is = getClass().getResourceAsStream("/laporan/laporanUser.jrxml");
-            JasperReport jr = JasperCompileManager.compileReport(is); 
+            JasperReport jr = JasperCompileManager.compileReport(is);
             JasperPrint jp = JasperFillManager.fillReport(jr, parameter, conn);
             JasperViewer.viewReport(jp, false);
         } catch (Exception e) {
@@ -373,6 +395,7 @@ public class viewUser extends javax.swing.JInternalFrame {
     private javax.swing.JButton tombolCetak;
     private javax.swing.JButton tombolDelete;
     private javax.swing.JButton tombolEdit;
+    private javax.swing.JButton tomboltambah;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

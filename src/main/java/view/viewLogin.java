@@ -54,7 +54,6 @@ public class viewLogin extends javax.swing.JFrame {
         username = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         tombolLogin = new javax.swing.JButton();
-        tombolSignup = new javax.swing.JButton();
         level = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
 
@@ -98,14 +97,12 @@ public class viewLogin extends javax.swing.JFrame {
             }
         });
 
-        tombolSignup.setText("Signup");
-        tombolSignup.addActionListener(new java.awt.event.ActionListener() {
+        level.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kasir", "Admin", "Super Admin" }));
+        level.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tombolSignupActionPerformed(evt);
+                levelActionPerformed(evt);
             }
         });
-
-        level.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kasir", "Admin" }));
 
         jLabel4.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
         jLabel4.setText("Level");
@@ -116,25 +113,21 @@ public class viewLogin extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(121, 121, 121)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(tombolSignup)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tombolLogin))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(36, 36, 36))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(65, 65, 65)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(username)
-                            .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(level, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(36, 36, 36))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(65, 65, 65)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tombolLogin)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(username)
+                        .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                        .addComponent(level, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -152,11 +145,9 @@ public class viewLogin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(level, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tombolLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tombolSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
+                .addGap(30, 30, 30)
+                .addComponent(tombolLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -182,19 +173,12 @@ public class viewLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tombolSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolSignupActionPerformed
-        // TODO add your handling code here:
-        viewSignup vS = new viewSignup();
-        vS.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_tombolSignupActionPerformed
-
     private void tombolLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolLoginActionPerformed
         // TODO add your handling code here:
         if(username.getText().equals("")||password.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Username atau Password Kosong");
         }else{
-            if(level.getSelectedItem().toString().equals("Admin")){
+            if(level.getSelectedItem().toString().equals("Admin")|| level.getSelectedItem().toString().equals("Super Admin")){
                 cL.loginAdmin();
             }else if(level.getSelectedItem().toString().equals("Kasir")){
                 cL.loginKasir();
@@ -202,6 +186,10 @@ public class viewLogin extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_tombolLoginActionPerformed
+
+    private void levelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_levelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,7 +237,6 @@ public class viewLogin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> level;
     private javax.swing.JPasswordField password;
     private javax.swing.JButton tombolLogin;
-    private javax.swing.JButton tombolSignup;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

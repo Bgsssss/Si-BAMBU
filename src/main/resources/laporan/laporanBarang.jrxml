@@ -40,37 +40,45 @@ FROM dbtokodesktop.barang]]></query>
 		<property name="com.jaspersoft.studio.field.tree.path" value="barang"/>
 	</field>
 	<background/>
-	<title height="72">
-		<element kind="frame" uuid="185c9f9e-b41b-4ece-964f-05d349ac1c98" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699">
-			<element kind="staticText" uuid="8d23839c-68c5-463c-b9e4-4a7ef1f5bc22" x="20" y="20" width="480" height="43" forecolor="#FFFFFF" fontSize="34.0" bold="true">
+	<pageHeader height="155">
+		<element kind="frame" uuid="9a5d7ad6-d902-40e4-af8b-903b6ecac625" mode="Opaque" x="-18" y="105" width="600" height="50" backcolor="#228B22">
+			<element kind="staticText" uuid="52c3fbd3-6585-425e-8fb1-4512112bd0a4" x="90" y="7" width="434" height="43" forecolor="#FFFFFF" fontSize="19.0" bold="true" hTextAlign="Center">
 				<text><![CDATA[LAPORAN DATA BARANG]]></text>
 			</element>
 		</element>
-	</title>
-	<pageHeader height="13"/>
-	<columnHeader height="21">
-		<element kind="line" uuid="00e092da-c066-4cbe-8ba0-209d9aae4925" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
-		<element kind="staticText" uuid="1e568b29-cee4-44c5-934d-4081d6f60fec" mode="Opaque" x="0" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="image" uuid="366d28c5-45a9-4007-90e2-2fa28327e82d" x="35" y="-15" width="180" height="130">
+			<expression><![CDATA["D:/Kuliah/Semester-6/PV/nobg.png"]]></expression>
+		</element>
+		<element kind="textField" uuid="f5257a9f-eef1-48d2-a522-afb2b7400faf" x="285" y="55" width="288" height="30" fontSize="19.0" hTextAlign="Center">
+			<expression><![CDATA["Pasar Induk Kramat Jati Los C"]]></expression>
+		</element>
+		<element kind="textField" uuid="9ea62a85-6a3e-4ca4-b913-5bfdf77528e4" x="362" y="30" width="158" height="50" fontSize="25.0" bold="true">
+			<expression><![CDATA["SI BAMBU"]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="41">
+		<element kind="line" uuid="00e092da-c066-4cbe-8ba0-209d9aae4925" x="-20" y="40" width="595" height="1" forecolor="#666666"/>
+		<element kind="staticText" uuid="1e568b29-cee4-44c5-934d-4081d6f60fec" mode="Opaque" x="0" y="20" width="92" height="20" forecolor="#1B5E20" backcolor="#F0FFF0" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[ID Barang]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="86b20c77-b735-4a4a-bea9-0a4f73058f8a"/>
 		</element>
-		<element kind="staticText" uuid="764effe7-fa9b-4731-a6bb-aaeb994b7e20" mode="Opaque" x="92" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="764effe7-fa9b-4731-a6bb-aaeb994b7e20" mode="Opaque" x="92" y="20" width="92" height="20" forecolor="#1B5E20" backcolor="#FFFFFF" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Nama Barang]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d4036c55-c8b3-48eb-9ca2-38faed9a4190"/>
 		</element>
-		<element kind="staticText" uuid="15d1c10a-cf70-4fd2-8cce-c866ecc1520f" mode="Opaque" x="184" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="15d1c10a-cf70-4fd2-8cce-c866ecc1520f" mode="Opaque" x="184" y="20" width="92" height="20" forecolor="#1B5E20" backcolor="#F0FFF0" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Kategori]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8712e03a-0121-4d60-90d4-cdfa720cf9c7"/>
 		</element>
-		<element kind="staticText" uuid="d9578f7c-1ae0-44c9-8d80-9012688e3e59" mode="Opaque" x="276" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="d9578f7c-1ae0-44c9-8d80-9012688e3e59" mode="Opaque" x="276" y="20" width="92" height="20" forecolor="#1B5E20" backcolor="#FFFFFF" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Modal]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9797747c-1876-42f5-8420-9e93e454430f"/>
 		</element>
-		<element kind="staticText" uuid="85dd15fe-168c-4624-970c-557ca8a935ad" mode="Opaque" x="368" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="85dd15fe-168c-4624-970c-557ca8a935ad" mode="Opaque" x="368" y="20" width="92" height="20" forecolor="#1B5E20" backcolor="#F0FFF0" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Harga Jual]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f54203a-0cc9-440e-b7fb-bc82e20a297f"/>
 		</element>
-		<element kind="staticText" uuid="1c281766-ff52-409c-9e20-3211af2ebb0f" mode="Opaque" x="460" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="1c281766-ff52-409c-9e20-3211af2ebb0f" mode="Opaque" x="460" y="20" width="92" height="20" forecolor="#1B5E20" backcolor="#FFFFFF" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Stok]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5ab09d18-f44b-4f79-a5ca-68590fea995f"/>
 		</element>
@@ -127,8 +135,8 @@ FROM dbtokodesktop.barang]]></query>
 		</element>
 	</pageFooter>
 	<summary height="200">
-		<element kind="textField" uuid="6d13072b-17bc-49f5-9426-679afb4e888f" x="390" y="70" width="125" height="30" fontSize="13.0" hTextAlign="Center">
-			<expression><![CDATA[new java.text.SimpleDateFormat("'Jakarta, 'dd MMMM yyyy", 
+		<element kind="textField" uuid="6d13072b-17bc-49f5-9426-679afb4e888f" x="368" y="70" width="184" height="30" fontSize="13.0" hTextAlign="Center">
+			<expression><![CDATA[new java.text.SimpleDateFormat("'Jakarta, 'EEEE, dd MMMM yyyy", 
     new java.util.Locale("id", "ID")
 ).format(new java.util.Date())]]></expression>
 		</element>

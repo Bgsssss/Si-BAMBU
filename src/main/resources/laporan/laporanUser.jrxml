@@ -28,29 +28,37 @@ FROM dbtokodesktop.user]]></query>
 		<property name="com.jaspersoft.studio.field.tree.path" value="user"/>
 	</field>
 	<background/>
-	<title height="72">
-		<element kind="frame" uuid="59b8bb87-65c4-45bb-83fb-15c56d8ef1db" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699">
-			<element kind="staticText" uuid="9f9aba5a-0748-4603-8c3b-d606c9846c3e" x="20" y="20" width="400" height="43" forecolor="#FFFFFF" fontSize="34.0" bold="true">
+	<pageHeader height="155">
+		<element kind="frame" uuid="4538f6be-6cb1-487b-807c-b7dfc086ddd5" mode="Opaque" x="-25" y="105" width="600" height="50" backcolor="#1B5E20">
+			<element kind="staticText" uuid="8bd27176-7629-4283-af05-a4805d3eb82c" x="90" y="7" width="434" height="43" forecolor="#FFFFFF" fontSize="19.0" bold="true" hTextAlign="Center">
 				<text><![CDATA[LAPORAN DATA USER]]></text>
 			</element>
 		</element>
-	</title>
-	<pageHeader height="13"/>
-	<columnHeader height="21">
-		<element kind="line" uuid="120bb266-03dc-45f2-b849-bdae678ec1c0" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
-		<element kind="staticText" uuid="8b6e9513-6b4e-4478-bdd0-7f228ab5b08c" mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="image" uuid="693feada-e3f2-4bb9-afe2-5545e63eaa3b" x="35" y="-15" width="180" height="130">
+			<expression><![CDATA["D:/Kuliah/Semester-6/PV/nobg.png"]]></expression>
+		</element>
+		<element kind="textField" uuid="ef344999-cef8-4885-af2f-37380c8287c1" x="280" y="50" width="288" height="30" fontSize="19.0" hTextAlign="Center">
+			<expression><![CDATA["Pasar Induk Kramat Jati Los C"]]></expression>
+		</element>
+		<element kind="textField" uuid="b4d85f77-cfb7-4967-9d63-af6ca5efa70a" x="362" y="20" width="158" height="50" fontSize="25.0" bold="true">
+			<expression><![CDATA["SI BAMBU"]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="41">
+		<element kind="line" uuid="120bb266-03dc-45f2-b849-bdae678ec1c0" x="-20" y="40" width="595" height="1" forecolor="#666666"/>
+		<element kind="staticText" uuid="8b6e9513-6b4e-4478-bdd0-7f228ab5b08c" mode="Opaque" x="0" y="20" width="138" height="20" forecolor="#1B5E20" backcolor="#F0FFF0" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[ID User]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="81620f41-b659-4887-984e-77a58612b994"/>
 		</element>
-		<element kind="staticText" uuid="fcfcf0e0-e651-47d0-bfe8-5892a8b35882" mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="fcfcf0e0-e651-47d0-bfe8-5892a8b35882" mode="Opaque" x="138" y="20" width="138" height="20" forecolor="#1B5E20" backcolor="#FFFFFF" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Username]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf97f407-cbcc-4f4f-86f0-dec940e0eb3a"/>
 		</element>
-		<element kind="staticText" uuid="bc58772e-a2ad-41d3-bfab-9b0c2c51ed14" mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="bc58772e-a2ad-41d3-bfab-9b0c2c51ed14" mode="Opaque" x="276" y="20" width="138" height="20" forecolor="#1B5E20" backcolor="#F0FFF0" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Password]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a0635985-fb45-409a-934d-f0632c7f65e0"/>
 		</element>
-		<element kind="staticText" uuid="1ae11b87-8b6e-499f-b763-2ca801265c4d" mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="1ae11b87-8b6e-499f-b763-2ca801265c4d" mode="Opaque" x="414" y="20" width="138" height="20" forecolor="#1B5E20" backcolor="#FFFFFF" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Level]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ab4e470c-7dc5-407f-82fe-6494e28bed0f"/>
 		</element>

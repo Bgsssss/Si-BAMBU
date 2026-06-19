@@ -24,23 +24,24 @@ public class controllerLogin {
     
     public void loginAdmin(){
         String sql = "SELECT * FROM user WHERE username='"+vL.getUsername().getText()+"' AND "
-                + "password='"+vL.getPassword().getText()+"' AND level='admin'";
-        try {
-            Statement stat = (Statement) Koneksi.getConnect().createStatement();
-            ResultSet res = stat.executeQuery(sql);
-            
-            if (res.next()){
-                JOptionPane.showMessageDialog(null, "Login Sukses");
-                vL.dispose();
-                
-                mainAppAdm main = new mainAppAdm();
-                main.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(null, "Username atau Password Salah");
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR");
+            + "password='"+vL.getPassword().getText()+"' AND (level='admin' OR level='super admin')";
+    try {
+        Statement stat = (Statement) Koneksi.getConnect().createStatement();
+        ResultSet res = stat.executeQuery(sql);
+
+        if (res.next()){
+            String roleDariDB = res.getString("level"); // ambil dari kolom level di tabel user
+            JOptionPane.showMessageDialog(null, "Login Sukses");
+            vL.dispose();
+
+            mainAppAdm main = new mainAppAdm(roleDariDB); // kirim role asli, bukan dari combobox
+            main.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Username atau Password Salah");
         }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "ERROR");
+    }
     }
     
     public void loginKasir(){

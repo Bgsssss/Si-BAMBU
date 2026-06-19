@@ -28,29 +28,37 @@ FROM dbtokodesktop.pemasok]]></query>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pemasok"/>
 	</field>
 	<background/>
-	<title height="72">
-		<element kind="frame" uuid="10087a28-20ef-444d-93fa-1960369a0a96" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699">
-			<element kind="staticText" uuid="8b406411-139f-4b60-b704-31c99ed54239" x="20" y="20" width="480" height="43" forecolor="#FFFFFF" fontSize="34.0" bold="true">
+	<pageHeader height="155">
+		<element kind="frame" uuid="1967bd20-9b71-4589-9b11-33f42807c590" mode="Opaque" x="-25" y="105" width="600" height="50" backcolor="#1B5E20">
+			<element kind="staticText" uuid="aa86ae3b-eddc-470d-b9d3-a82c53756e4c" x="90" y="7" width="434" height="43" forecolor="#FFFFFF" fontSize="19.0" bold="true" hTextAlign="Center">
 				<text><![CDATA[LAPORAN DATA PEMASOK]]></text>
 			</element>
 		</element>
-	</title>
-	<pageHeader height="13"/>
-	<columnHeader height="21">
-		<element kind="line" uuid="82c953c6-84bb-4cae-a638-d8983a7e5afd" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
-		<element kind="staticText" uuid="b2a8e731-66cb-4f05-9db7-3c5f9e9bf9e3" mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="image" uuid="c3159348-5c7d-474b-bcf7-7c90e38a0f67" x="35" y="-15" width="180" height="130">
+			<expression><![CDATA["D:/Kuliah/Semester-6/PV/nobg.png"]]></expression>
+		</element>
+		<element kind="textField" uuid="d31f8b9a-6122-4ae9-83eb-ffabde98288a" x="357" y="25" width="145" height="50" fontSize="25.0" bold="true">
+			<expression><![CDATA["SIBAMBU"]]></expression>
+		</element>
+		<element kind="textField" uuid="7646b322-9476-4acb-826f-9fab96356bdc" x="285" y="55" width="288" height="30" fontSize="19.0" hTextAlign="Center">
+			<expression><![CDATA["Pasar Induk Kramat Jati Los C"]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="41">
+		<element kind="line" uuid="82c953c6-84bb-4cae-a638-d8983a7e5afd" x="-20" y="40" width="595" height="1" forecolor="#666666"/>
+		<element kind="staticText" uuid="b2a8e731-66cb-4f05-9db7-3c5f9e9bf9e3" mode="Opaque" x="0" y="20" width="138" height="20" forecolor="#1B5E20" backcolor="#F0FFF0" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[ID Pemasok]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c7bb074b-dffc-4beb-87c5-82f8471f3ee5"/>
 		</element>
-		<element kind="staticText" uuid="ed976e90-3d8a-4b9e-886e-d09dfecde72e" mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="ed976e90-3d8a-4b9e-886e-d09dfecde72e" mode="Opaque" x="138" y="20" width="138" height="20" forecolor="#1B5E20" backcolor="#FFFFFF" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Nama Pemasok]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e6e61c9f-5f1a-45ff-9bc7-5265a57fc604"/>
 		</element>
-		<element kind="staticText" uuid="fadf8ea3-2038-45e6-9281-a89e39b6be0f" mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="fadf8ea3-2038-45e6-9281-a89e39b6be0f" mode="Opaque" x="276" y="20" width="138" height="20" forecolor="#1B5E20" backcolor="#F0FFF0" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Alamat]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="784dd063-a418-4160-8df0-1009e520c809"/>
 		</element>
-		<element kind="staticText" uuid="f4df6163-c65e-422c-adae-25463b939c86" mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="f4df6163-c65e-422c-adae-25463b939c86" mode="Opaque" x="414" y="20" width="138" height="20" forecolor="#1B5E20" backcolor="#FFFFFF" fontSize="14.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[Kontak]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="18bce343-df81-4f6d-a713-348f881796b0"/>
 		</element>
@@ -91,8 +99,8 @@ FROM dbtokodesktop.pemasok]]></query>
 		</element>
 	</pageFooter>
 	<summary height="220">
-		<element kind="textField" uuid="861bcf2d-2571-446e-b523-04acee667ff3" x="390" y="70" width="125" height="30" fontSize="13.0" hTextAlign="Center">
-			<expression><![CDATA[new java.text.SimpleDateFormat("'Jakarta, 'dd MMMM yyyy", 
+		<element kind="textField" uuid="861bcf2d-2571-446e-b523-04acee667ff3" x="370" y="70" width="182" height="30" fontSize="13.0" hTextAlign="Center">
+			<expression><![CDATA[new java.text.SimpleDateFormat("'Jakarta, 'EEEE, dd MMMM yyyy", 
     new java.util.Locale("id", "ID")
 ).format(new java.util.Date())]]></expression>
 		</element>
