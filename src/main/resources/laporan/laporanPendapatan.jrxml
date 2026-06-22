@@ -56,7 +56,7 @@ new java.text.SimpleDateFormat("dd MMMM yyyy", new java.util.Locale("id","ID"))
 			</element>
 		</element>
 		<element kind="image" uuid="dd22024d-e13c-4c67-9018-f5c3105c9eb8" x="30" y="-20" width="180" height="130">
-			<expression><![CDATA["D:/Kuliah/Semester-6/PV/nobg.png"]]></expression>
+			<expression><![CDATA[getClass().getResourceAsStream("/laporan/logo.png")]]></expression>
 		</element>
 		<element kind="textField" uuid="5be76e4b-129e-4748-923b-93b326f5fe8b" x="280" y="50" width="288" height="30" fontSize="19.0" hTextAlign="Center">
 			<expression><![CDATA["Pasar Induk Kramat Jati Los C"]]></expression>

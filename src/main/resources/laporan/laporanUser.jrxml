@@ -35,7 +35,7 @@ FROM dbtokodesktop.user]]></query>
 			</element>
 		</element>
 		<element kind="image" uuid="693feada-e3f2-4bb9-afe2-5545e63eaa3b" x="35" y="-15" width="180" height="130">
-			<expression><![CDATA["D:/Kuliah/Semester-6/PV/nobg.png"]]></expression>
+			<expression><![CDATA[getClass().getResourceAsStream("/laporan/logo.png")]]></expression>
 		</element>
 		<element kind="textField" uuid="ef344999-cef8-4885-af2f-37380c8287c1" x="280" y="50" width="288" height="30" fontSize="19.0" hTextAlign="Center">
 			<expression><![CDATA["Pasar Induk Kramat Jati Los C"]]></expression>

@@ -50,7 +50,7 @@ FROM dbtokodesktop.transaksi]]></query>
 			<expression><![CDATA["Pasar Induk Kramat Jati Los C"]]></expression>
 		</element>
 		<element kind="image" uuid="2636bc44-4d36-42ad-b6a0-d666ae8b24a1" x="30" y="-20" width="180" height="130">
-			<expression><![CDATA["D:/Kuliah/Semester-6/PV/nobg.png"]]></expression>
+			<expression><![CDATA[getClass().getResourceAsStream("/laporan/logo.png")]]></expression>
 		</element>
 		<property name="com.jaspersoft.studio.layout"/>
 	</title>
