@@ -38,7 +38,7 @@ FROM dbtokodesktop.pemasok]]></query>
 			<expression><![CDATA[getClass().getResourceAsStream("/laporan/logo.png")]]></expression>
 		</element>
 		<element kind="textField" uuid="d31f8b9a-6122-4ae9-83eb-ffabde98288a" x="357" y="25" width="145" height="50" fontSize="25.0" bold="true">
-			<expression><![CDATA["SIBAMBU"]]></expression>
+			<expression><![CDATA["SI BAMBU"]]></expression>
 		</element>
 		<element kind="textField" uuid="7646b322-9476-4acb-826f-9fab96356bdc" x="285" y="55" width="288" height="30" fontSize="19.0" hTextAlign="Center">
 			<expression><![CDATA["Pasar Induk Kramat Jati Los C"]]></expression>

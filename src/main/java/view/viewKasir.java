@@ -290,22 +290,33 @@ public class viewKasir extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Nama Pembeli");
 
+        namaPembeli.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+
         jLabel9.setText("Total");
 
+        total.setEditable(false);
+        total.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         total.setText("0");
-        total.setEnabled(false);
 
         jLabel10.setText("Bayar");
 
         jLabel11.setText("Kembali");
 
+        bayar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        bayar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bayarActionPerformed(evt);
+            }
+        });
         bayar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 bayarKeyTyped(evt);
             }
         });
 
-        kembali.setEnabled(false);
+        kembali.setEditable(false);
+        kembali.setBackground(new java.awt.Color(242, 242, 242));
+        kembali.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
         tombolBatalTransaksi.setText("Batal");
         tombolBatalTransaksi.addActionListener(new java.awt.event.ActionListener() {
@@ -332,7 +343,8 @@ public class viewKasir extends javax.swing.JInternalFrame {
 
         jLabel12.setText("Jumlah Beli");
 
-        jumlahBarang.setEnabled(false);
+        jumlahBarang.setEditable(false);
+        jumlahBarang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -509,6 +521,10 @@ public class viewKasir extends javax.swing.JInternalFrame {
             evt.consume();
         }
     }//GEN-LAST:event_bayarKeyTyped
+
+    private void bayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bayarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bayarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
