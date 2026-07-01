@@ -164,7 +164,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`idUser`, `username`, `password`, `level`) VALUES
 (5, 'superadmin', 'super123', 'Super Admin'),
-(6, 'admin', 'admin123', 'Kasir'),
+(6, 'admin', 'admin123', 'Admin'),
 (7, 'kasir', 'kasir123', 'Kasir');
 
 --
